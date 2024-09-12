@@ -4,7 +4,7 @@ Este projeto implementa um sistema de recomendação de produtos eletrônicos ut
 
 ## Arquitetura do Projeto
 
-1. **Criação da Base de Dados**: Uma base de dados fictícia contendo informações sobre produtos eletrônicos, suas categorias, marcas, preços e avaliações.
+1. **Importação da Base de Dados**: Uma base de dados em excel importada com pandas.
 2. **Normalização dos Dados**: Utilização das bibliotecas Pandas e NumPy para normalizar os dados e prepará-los para o modelo de recomendação.
 3. **Função de Recomendação**: Implementação do algoritmo KNN (K-Nearest Neighbors) utilizando a biblioteca Scikit-learn para encontrar produtos similares.
 4. **Interface Gráfica**: Desenvolvimento de uma interface gráfica utilizando Tkinter para facilitar a interação do usuário com o sistema.
@@ -29,7 +29,7 @@ pip install pandas numpy scikit-learn
 
 O código consiste nas seguintes partes principais:
 
-1. **Criação da Base de Dados**
+1. **Importação da Base de Dados**
 2. **Normalização dos Dados**
 3. **Função de Recomendação**
 4. **Interface Gráfica**
