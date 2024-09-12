@@ -40,6 +40,30 @@ O código consiste nas seguintes partes principais:
 - **Pandas e NumPy**: Utilizamos as bibliotecas Pandas e NumPy para o pré-processamento de dados, incluindo a normalização de variáveis e codificação de variáveis categóricas.
 - **Tkinter**: Implementamos uma interface gráfica simples utilizando a biblioteca Tkinter para facilitar a interação dos usuários com o sistema de recomendação.
 
+## Arquitetura IA Utilizada
+A arquitetura de IA usada neste código é baseada no algoritmo de K-Nearest Neighbors (KNN), que é um método de aprendizado supervisionado para encontrar itens similares com base em suas características. O KNN é aplicado para analisar múltiplas características de cada produto e recomendar os produtos mais parecidos com o produto escolhido.
+
+- **Por que foi escolhido?** O KNN é um algoritmo simples e eficaz para problemas de recomendação. Ele funciona bem em contextos onde os produtos podem ser descritos por atributos numéricos ou categóricos, como no caso dos produtos eletrônicos. O algoritmo é não paramétrico, o que significa que não faz suposições sobre a distribuição dos dados, sendo flexível e fácil de implementar.
+
+## Como foi implementado
+
+### Preparação de dados
+ - Os atributos numéricos como preço e avaliação são normalizados para que tenham a mesma escala. A normalização garante que essas características tenham a mesma influência no modelo.
+ - O atributo categórico da categoria dos produtos é codificado usando One-Hot Encoding, convertendo as categorias em vetores binários.
+
+### Construção do vetor de características
+ - Após a codificação das categorias e a normalização dos atributos numéricos, é criado um vetor de características para cada produto, contendo informações sobre sua categoria, preço e avaliação.
+ - A categoria do produto selecionado tem seu peso duplicado (peso 2) para enfatizar a importância de recomendar produtos da mesma categoria ou categorias relacionadas.
+
+### Treinamento do modelo KNN
+ - O algoritmo K-Nearest Neighbors é treinado com os vetores de características dos produtos usando a distância Manhattan, que mede a similaridade entre os produtos. A escolha da distância de Manhattan é apropriada quando se deseja medir diferenças absolutas entre múltiplas características.
+ - O parâmetro n_neighbors foi definido como 4, o que significa que o KNN irá buscar até três produtos similares ao produto selecionado, além de considerar o próprio produto
+
+### Recomendação de produtos:
+ - Ao receber um produto como entrada, o modelo KNN encontra os produtos mais próximos no espaço de características, retornando uma lista dos produtos mais similares, excluindo o próprio produto.
+ - A recomendação é baseada nas características ponderadas, garantindo que a categoria tenha mais peso, mas também levando em consideração o preço e a avaliação dos produtos.
+
+
 ## Conceitos de Machine Learning / IA Utilizados
 
 - **Aprendizado Supervisionado**: Utilizamos o algoritmo KNN, um método de aprendizado supervisionado, para recomendar produtos com base nas características dos produtos.
